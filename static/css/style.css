@@ -1,0 +1,781 @@
+body {
+    color: white;
+    background: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    overflow-x: hidden;
+    margin: 0;
+    scroll-behaviour:smooth;
+}
+
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index: -10;
+}
+
+/**********************************/
+/********** Top Bar CSS ***********/
+/**********************************/
+.top-bar {
+    position: relative;
+    height: 80px;
+    width: 100%;
+    background: black;
+    margin-top: -20px;
+}
+
+.top-bar h2 {
+    margin-top: 20px;
+    padding-top: 25px;
+    margin-left:60px;
+    color: #009999;
+}
+
+.top-bar a {
+    text-decoration: none;
+}
+
+@media (max-width: 765px) {
+    .top-bar h2{
+        font-size:20px;
+    }
+}
+
+@media (max-width: 644px) {
+    .top-bar h2{
+        font-size:18px;
+    }
+}
+
+@media (max-width: 588px) {
+    .top-bar h2{
+        font-size:16px;
+    }
+}
+/**********************************/
+/*********** Nav CSS *************/
+/**********************************/
+nav {
+    background-color: #009999;
+    height: 70px;
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    z-index:10;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    background: #009999;
+
+}
+
+.nav-links li {
+    margin-left: 20px;
+    padding:20px;
+
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-family:'Poppins',sans-serif;
+}
+
+.nav-links li a:hover{
+    letter-spacing: 1px;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+    color: #fe924a;
+    transition: none;
+}
+
+nav ul li:hover> .dropdown-menu{
+    display:block;
+    z-index:10;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  padding: 0;
+  z-index:10;
+}
+
+.dropdown-menu li {
+  display: block;
+}
+
+.dropdown-menu li a {
+  padding: 10px;
+  color: #333;
+  text-decoration: none;
+  font-family:'Poppins',sans-serif;
+}
+
+.dropdown-menu li:hover {
+  background-color: #e5e5e5;
+}
+
+.in-block{
+    background: #009990;
+    border-radius:0px;
+    border-color:black;
+}
+
+.logo{
+    margin-right:40px;
+    height:100%;
+}
+
+@media (max-width:596px){
+    .logo{
+        display:none;
+    }
+}
+/******************************************/
+/********** Screen Division CSS ***********/
+/******************************************/
+.container-fluid .row {
+    display: flex;
+}
+
+.container-fluid .col-lg-7 {
+    flex-basis: 48%;
+    padding: 0 10px;
+}
+
+.container-fluid .col-lg-4 {
+    flex-basis: 53%;
+    padding: 0 60px;
+}
+
+/****************************************************/
+/********** Laser diode & LED Circuit CSS ***********/
+/****************************************************/
+.readings {
+    z-index: 2;
+}
+
+.readings .amps {
+    z-index: 1;
+    position: absolute;
+    color:red;
+    top:230px;
+    left:400px;
+}
+
+.readings .volts {
+    z-index: 1;
+    position: absolute;
+    color:red;
+    top:400px;
+    left:780px;
+}
+.icon1 {
+    position: absolute;
+    transform: rotate(45deg);
+    width: 80px;
+    height: 70px;
+    z-index:1;
+    top:400px;
+    left:540px;
+}
+
+.icon2 {
+  position: absolute;
+  transform: rotate(45deg);
+  width: 80px;
+  height: 70px;
+  z-index:1;
+  top:430px;
+  left:540px;
+}
+
+.arrow::after {
+  top: -6px;
+  transform: rotate(45deg);
+}
+
+.arrow::before {
+  top: 6px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  transform: rotate(-45deg);
+}
+
+@keyframes glow {
+
+  100% {
+    opacity: 1;
+    box-shadow: 30px 0px 40px red;
+  }
+
+}
+
+.circuit img {
+    background:transparent;
+    width: 900px;
+    height: 500px;
+    position: static;
+    overflow:hidden;
+}
+
+.form {
+    overflow: hidden;
+    z-index: 1;
+    position: relative;
+    left: 200px;
+    bottom:20px;
+
+}
+
+.form label {
+    font-size: 25px;
+}
+
+.form input {
+    font-size: 25px;
+}
+
+.graph {
+    position:relative;
+    left:350px;
+    font-size: 25px;
+    cursor:pointer;
+    overflow:hidden;
+    bottom:15px;
+}
+
+.step{
+  /* CSS styles for the input element */
+  width: 160px;
+  padding: 5px;
+}
+.form .submit{
+    cursor:pointer;
+}
+
+@media (max-width: 1425px){
+    .circuit img{
+        width:800px;
+        height:444px;
+    }
+    .readings .amps{
+        left:350px;
+        top:220px;
+    }
+    .readings .volts{
+        left:695px;
+        top:360px;
+    }
+    .icon1{
+        top:370px;
+        left:480px;
+    }
+    .icon2{
+        top:400px;
+        left:480px;
+    }
+}
+
+.table2 {
+    table-layout: fixed;
+    margin-right: 20px;
+}
+
+.table2 th, .table2 td {
+    width: 50%;
+}
+
+@media (max-width:1250px){
+    .container-fluid .col-lg-4 {
+        flex-basis: 29.9%;
+    }
+}
+
+@media (max-width:1205px){
+    .container-fluid .col-lg-4 {
+        flex-basis: 25%;
+    }
+}
+
+@media (max-width:1120px){
+    .circuit img{
+        width:700px;
+        height:388.888px;
+    }
+    .container-fluid .col-lg-4 {
+        flex-basis: 30%;
+    }
+    .readings .amps{
+        left:305px;
+        top:205px;
+    }
+    .readings .volts{
+        left:610px;
+        top:335px;
+    }
+    .icon1{
+        left:415px;
+        top:340px;
+    }
+    .icon2{
+        left:415px;
+        top:374px;
+    }
+    .form{
+        left:120px;
+    }
+    .graph{
+        left:290px;
+    }
+}
+
+@media (max-width:1080px){
+    .body{
+        overflow: visible;
+    }
+}
+
+@media (max-width: 1080px) {
+    .table1 {
+        display: none;
+    }
+    .table2 {
+        position:absolute;
+        display: content;
+        top:550px;
+    }
+    .container-fluid .col-lg-7,
+    .container-fluid .col-lg-4 {
+        width: 100%;
+        padding: 0 10px;
+        margin: 0;
+    }
+    .form{
+        left:650px;
+        top:-300px;
+    }
+    .form label{
+        font-size:16px;
+    }
+    .form input{
+        font-size:16px;
+    }
+    .graph{
+        left:800px;
+        top:-250px;
+    }
+}
+
+@media (min-width: 1081px) {
+    .table2 {
+        display: none;
+    }
+}
+
+@media (max-width: 1000px){
+    .circuit img{
+        width:100vw;
+    }
+    .table2{
+        top:650px;
+    }
+    .form{
+        left:33%;
+        top:0px;
+    }
+    .graph{
+        left:44%;
+        top:10px;
+    }
+    .readings .amps{
+        left:45%;
+    }
+    .readings .volts{
+        left:88.5%;
+    }
+    .icon1{
+        left:61%;
+    }
+    .icon2{
+        left:61%;
+    }
+    .vi-graph{
+        width:100vw;
+    }
+}
+
+@media (max-width:625px){
+    .form{
+        left:17%;
+    }
+}
+
+@media (max-width:427px){
+    .form{
+        left:5%;
+    }
+    .readings h2{
+        font-size:16px;
+    }
+}
+
+
+
+/**********************************/
+/********** Laser Table CSS ***********/
+/**********************************/
+table{
+    margin-top:30px;
+}
+table, th, td {
+  border:3px solid white;
+  border-collapse: collapse;
+  font-size:20px;
+  color: white;
+  margin-left: 30px;
+}
+
+td{
+    text-align:center;
+    font-size:25px;
+}
+
+tr{
+    height:50px;
+}
+
+.laserViva{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    border-radius: 10px;
+    border: 5px solid white;
+    padding: 10px;
+    margin-top:20px;
+    margin-bottom: 20px;
+    background: transparent;
+}
+.box p, .box h3 {
+    margin-left:50px;
+    margin-right:50px;
+    text-align: justify;
+}
+.box p{
+    font-size:18px;
+}
+.container{
+    margin: 0 150px 0 150px;
+}
+
+.box img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 1065px) {
+    .box img{
+        max-width:100%;
+    }
+}
+
+@media (max-width: 700px) {
+    .container{
+        margin: 0 0 0 0;
+    }
+}
+
+@media (max-width: 580px) {
+    .container{
+        max-width:100%;
+    }
+}
+
+/***************************************************/
+/********** Photoelectric Effect Circuit ***********/
+/***************************************************/
+
+.photo-circuit img{
+    background:transparent;
+    width: 52vw;
+    height: 62vh;
+    position: static;
+    overflow:hidden;
+}
+
+.photo-amps{
+    z-index: 1;
+    position: absolute;
+    left:7.5%;
+    top:48.5%;
+    color:red;
+}
+
+.photo-volts{
+    z-index: 1;
+    position: absolute;
+    left:30.7%;
+    top:58.5%;
+    color:red;}
+
+.input-voltage form{
+    position:absolute;
+    left:18%;
+    top:88%;
+    bottom:30px;
+    width:100%
+}
+
+#voltage_slider{
+    width:15%;
+
+}
+.input-voltage form .submit{
+    font-size:20px;
+}
+.input-voltage h3{
+    position:absolute;
+    left:18%;
+    top:80%;
+}
+
+.photolight{
+    position:relative;
+    top:20%;
+    left:20%;
+}
+
+.photolight select{
+    font-size:22px;
+    width:400px;
+}
+
+.photolight input{
+    font-size:22px;
+}
+
+.light{
+    position:absolute;
+    width: 0.5vw;
+    height: 0;
+    border-left: 3.2vw solid transparent;
+    border-right: 3.2vw solid transparent;
+    opacity: 60%;
+    z-index:1;
+    transform: rotate(65deg);
+    left:25%;
+    top:17.5%;
+}
+
+.photoGraph{
+    margin-top:20px;
+    position:absolute;
+    left:140px;
+}
+
+.move-container {
+    display: none;
+    overflow: hidden;
+    position: absolute;
+    left: 17.5%;
+    top:36%;
+    width:21.5vw;
+}
+
+.element-wrapper {
+  opacity: 0;
+  margin-right: 20px;
+  animation: move-elements 1.7s linear infinite; /* Adjust the animation speed if needed */
+}
+
+@media (max-width:1355px){
+    .photolight{
+        top:10%;
+        left:10%;
+    }
+}
+
+@media (max-width:1257px){
+    .photoGraph{
+        position:absolute;
+        top:-80px;
+        left:80%;
+    }
+}
+
+.element-wrapper h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+@keyframes move-elements {
+  0% {
+    opacity: 1;
+    transform: translateX(-100%);
+  }
+  16.666% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  33.333% {
+    opacity: 1;
+    transform: translateX(100%);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(200%);
+  }
+  66.666% {
+    opacity: 1;
+    transform: translateX(300%);
+  }
+  83.333% {
+    opacity: 1;
+    transform: translateX(400%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(500%);
+  }
+}
+
+.element-wrapper:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.element-wrapper:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.element-wrapper:nth-child(3) {
+  animation-delay: 0.8s;
+}
+
+.element-wrapper:nth-child(4) {
+  animation-delay: 1.2s;
+}
+
+.element-wrapper:nth-child(5) {
+  animation-delay: 1.6s;
+}
+
+.wf{
+    position: absolute;
+    margin-top:50px;
+    display: none;
+}
+
+/* Styles for the popup container */
+.popup-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+
+.popup-container.visible {
+    display: block;
+}
+
+.visible{
+    display:block;
+}
+
+.hidden{
+    display:none;
+}
+/* Styles for the popup content */
+.popup-content {
+    text-align:center;
+    background-color: darkred;
+    padding: 20px;
+    max-width: 400px;
+    margin: 100px auto;
+    border-radius: 10px;
+    color: pink;
+    font-size: 25px;
+}
+
+button {
+    display: block;
+    width:95px;
+    height:50px;
+    margin: 100px auto;
+}
+
+.boxe {
+    background:black;
+    border:10px solid #333;
+    text-align:center;
+    font-family: "Helvetica", sans-serif;
+}
+
+.button-29 {
+  color: black;
+  align-items: center;
+  appearance: none;
+  background-color:#009999;
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+}
+
+.button-29:hover {
+  color:black;
+  box-shadow: #CCCCCC 0 4px 8px, #666666 0 7px 13px -3px, #4D4D4D 0 -3px 0 inset;
+  transform: translateY(-3px);
+}
+
+.button-29:active {
+  color: black;
+  box-shadow: #3c4fe0 0 0px 2px inset;
+  transform: translateY(2px);
+}
