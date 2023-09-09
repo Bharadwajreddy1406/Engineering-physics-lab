@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LED Characteristics</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="{{ url_for('static', filename='js/particles.js') }}"></script>
+</head>
+<body>
+<script>
+    if (performance.navigation.type === 1) {
+        window.location.href = "/led_li";
+    }
+    var referrer = document.referrer;
+
+    // Compare the referrer URL with the URLs of specific pages
+    if (referrer.includes('previous_page_url')) {
+        window.location.href = '/led_li';
+    }
+</script>
+<div id="particles-js"></div>
+<div class="top-bar" id="top">
+        <div class="row align-items-center">
+            <div class="col-lg-12 col-md-12">
+                    <h2>Engineering Physics Virtual Lab - LED Characteristics</h2>
+            </div>
+    </div>
+</div>
+
+<nav>
+    <ul class="nav-links">
+        <li class="dropdown"><a href="#">Laser Diode Characteristics</a>
+            <ul class="dropdown-menu">
+                <li class="in-block"><a href="{{ url_for('lasertheory') }}">Theory</a></li>
+                <li class="in-block"><a href="{{ url_for('lasersim') }}">Simulation</a></li>
+                <li class="in-block"><a href="{{ url_for('laserviva') }}">Self-Evalution</a></li>
+            </ul>
+        </li>
+        <li class="dropdown"><a href="#">LED Characteristics</a>
+            <ul class="dropdown-menu">
+                <li class="in-block"><a href="{{ url_for('ledtheory') }}">Theory</a></li>
+                <li class="in-block"><a href="#">Simulation</a>
+                    <ul class="dropdown-menu">
+                        <li class="in-block"><a href="{{ url_for('ledsimVI') }}">V-I Characteristics</a></li>
+                        <li class="in-block"><a href="{{ url_for('ledsimLI') }}">L-I Characteristics</a></li>
+                    </ul>
+                </li>
+                <li class="in-block"><a href="{{ url_for('ledviva') }}">Self-Evaluation</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Photoelectric Effect</a>
+            <ul class="dropdown-menu">
+                <li class="in-block"><a href="{{ url_for('phototheory') }}">Theory</a></li>
+                <li class="in-block"><a href="{{ url_for('photosim') }}">Simulation</a></li>
+                <li class="in-block"><a href="{{ url_for('photoviva') }}">Self-Evaluation</a></li>
+            </ul>
+        </li>
+    </ul>
+    <div class="logo">
+        <a href="https://kmit.in/"><img src="{{url_for('static', filename='images/kmit.png') }}" height="65px" width="100px"></a>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="row align-items-center">
+        <div class="col-lg-7 col-md-12">
+            {% if graph!=None and length>5 %}
+                <div class="vi-graph">
+                    <img src="data:image/png;base64,{{ g }}" alt="Matplotlib Plot">
+                </div>
+                <style>
+                    .circuit, .form, .icon1, .icon2, .readings{
+                        display:none;
+                     }
+                    .vi-graph{
+                        margin-top:30px;
+                        margin-left:100px;
+                        width:100%;
+                        height:100%;
+                    }
+                    table{
+                        margin-left:100px;
+                    }
+                </style>
+            {% else %}
+                <div class="popup-container {% if graph!=None and length<=5 %}visible{% else %}hidden{% endif %}" id="popup1">
+                    <div class="popup-content">
+                        <h2>Graph ERROR</h2>
+                        <p>Please enter a minimum of 6 values to generate graph</p>
+                        <button onclick="hidePopup()">Close</button>
+                    </div>
+                </div>
+                <div class="popup-container {% if flag %}visible{% else %}hidden{% endif %}" id="popup2">
+                    <div class="popup-content">
+                        <h2>Table ERROR</h2>
+                        <p>Value has already been appended to table</p>
+                        <p>Please enter another value</p>
+                        <button onclick="hidePopup()">Close</button>
+                    </div>
+                </div>
+                <script>
+                    function hidePopup() {
+                            var popup1 = document.getElementById('popup1');
+                            var popup2 = document.getElementById('popup2');
+                            popup1.classList.remove('visible');
+                            popup1.classList.add('hidden');
+                            popup2.classList.remove('visible');
+                            popup2.classList.add('hidden');
+                    }
+                </script>
+                <style>
+                    .arrow {
+                      position: absolute;
+                      top: 25px;
+                      width: 45px;
+                      height: {{ height }}px;
+                      background-color: {{ color }};
+                      box-shadow: 0 0 10px red;
+                      animation: glow 1.5s linear infinite;
+                    }
+                    .arrow::after,
+                    .arrow::before {
+                      content: '';
+                      position: absolute;
+                      width: 20px;;
+                      height: {{ height }}px;
+                      right: -3px;
+                      background-color: {{ color }};
+                      animation: light 1.5s linear infinite;
+                    }
+                </style>
+            <div class="circuit">
+                <img src="{{ url_for('static', filename='images/LED-li_sim.png') }}">
+                <div class="readings">
+                    <h2 class="amps">{{ current }}</h2>
+                    <h2 class="volts">{{ voltage }}</h2>
+                </div>
+                <div class="icon1">
+                    <div class="arrow"></div>
+                </div>
+                <div class="icon2">
+                    <div class="arrow"></div>
+                </div>
+            </div>
+            <form class="form" action="/process_form_ledLI" method="POST">
+                <label for="voltage">Enter Voltage:</label>
+                <input type="number" step="0.01" name="voltage" id="voltage" max="1.98" min="0.00" class="step"
+                       autofocus required>
+                <input type="submit" value="Submit" class="submit button-29" id="submitBtn"><br>
+            </form>
+            <form action="/process_form_ledLI" method="POST">
+                <input type="submit" value="Generate Graph" class="graph button-29" name="VIgraph">
+            </form>
+
+            {% endif %}
+        </div>
+        <div class="col-lg-4 col-md-12">
+            <table style="width:100%" class="table1">
+                <tr>
+                    <th>Light Intensity(mCd)</th>
+                    <th>Current(mA)</th>
+                </tr>
+                {% for value in table.values() %}
+                <tr>
+                    <td>{{ value[0] }}</td>
+                    <td>{{ value[1] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+ <table class="table2" style="width:100%;">
+    <tr style="width:100%;">
+        <th>Voltage(V)</th>
+        <th>Current(mA)</th>
+    </tr>
+    {% for value in table.values() %}
+    <tr>
+        <td>{{ value[0] }}</td>
+        <td>{{ value[1] }}</td>
+    </tr>
+    {% endfor %}
+ </table>
+</body>
+</html>

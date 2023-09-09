@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Photoelectric Effect</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="{{ url_for('static', filename='js/particles.js') }}"></script>
+    <script>
+    function scrollToTop() {
+        window.scrollTo(0, 0);
+    }
+
+    function handleFormSubmit(event) {
+        if (event.data && event.data.type === 'form-submit') {
+            scrollToTop();
+        }
+    }
+
+    window.addEventListener('message', handleFormSubmit, false);
+    </script>
+</head>
+<body>
+<div id="particles-js"></div>
+<div class="top-bar" id="top">
+    <div class="row align-items-center">
+        <div class="col-lg-12 col-md-12">
+            <h2>Engineering Physics Virtual Lab - Photoelectric Effect</h2>
+        </div>
+    </div>
+</div>
+
+<nav>
+    <ul class="nav-links">
+        <li class="dropdown"><a href="#">Laser Diode Characteristics</a>
+            <ul class="dropdown-menu">
+                <li class="in-block"><a href="{{ url_for('lasertheory') }}">Theory</a></li>
+                <li class="in-block"><a href="{{ url_for('lasersim') }}">Simulation</a></li>
+                <li class="in-block"><a href="{{ url_for('laserviva') }}">Self-Evaluation</a></li>
+            </ul>
+        </li>
+        <li class="dropdown"><a href="#">LED Characteristics</a>
+            <ul class="dropdown-menu">
+                <li class="in-block"><a href="{{ url_for('ledtheory') }}">Theory</a></li>
+                <li class="in-block"><a href="#">Simulation</a>
+                    <ul class="dropdown-menu">
+                        <li class="in-block"><a href="{{ url_for('ledsimVI') }}">V-I Characteristics</a></li>
+                        <li class="in-block"><a href="{{ url_for('ledsimLI') }}">L-I Characteristics</a></li>
+                    </ul>
+                </li>
+                <li class="in-block"><a href="{{ url_for('ledviva') }}">Self-Evaluation</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Photoelectric Effect</a>
+            <ul class="dropdown-menu">
+                <li class="in-block"><a href="{{ url_for('phototheory') }}">Theory</a></li>
+                <li class="in-block"><a href="{{ url_for('photosim') }}">Simulation</a></li>
+                <li class="in-block"><a href="{{ url_for('photoviva') }}">Self-Evaluation</a></li>
+            </ul>
+        </li>
+    </ul>
+    <div class="logo">
+        <a href="https://kmit.in/"><img src="{{url_for('static', filename='images/kmit.png') }}" height="65px"
+                                        width="100px"></a>
+    </div>
+</nav>
+<div class="laserViva">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScNY06DIcgDx907VO0zO_gSOvQ5TVnqtu5VSG8BF9MTzKwe8g/viewform?embedded=true&usp=pp_url"
+            width="640" height="2230" frameborder="0" onload="scrollToTop();">Loading…
+    </iframe>
+</div>
+</body>
+</html>

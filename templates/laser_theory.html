@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Laser Diode Characteristics</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="{{ url_for('static', filename='js/particles.js') }}"></script>
+</head>
+<body>
+<div id="particles-js"></div>
+<div class="top-bar" id="top">
+    <div class="row align-items-center">
+        <div class="col-lg-12 col-md-12">
+            <h2>Engineering Physics Virtual Lab - Laser Diode Characteristics</h2>
+        </div>
+    </div>
+</div>
+
+<nav>
+    <ul class="nav-links">
+        <li class="dropdown"><a href="#">Laser Diode Characteristics</a>
+            <ul class="dropdown-menu">
+                <li class="in-block"><a href="{{ url_for('lasertheory') }}">Theory</a></li>
+                <li class="in-block"><a href="{{ url_for('lasersim') }}">Simulation</a></li>
+                <li class="in-block"><a href="{{ url_for('laserviva') }}">Self-Evaluation</a></li>
+            </ul>
+        </li>
+        <li class="dropdown"><a href="#">LED Characteristics</a>
+            <ul class="dropdown-menu">
+                <li class="in-block"><a href="{{ url_for('ledtheory') }}">Theory</a></li>
+                <li class="in-block"><a href="#">Simulation</a>
+                    <ul class="dropdown-menu">
+                        <li class="in-block"><a href="{{ url_for('ledsimVI') }}">V-I Characteristics</a></li>
+                        <li class="in-block"><a href="{{ url_for('ledsimLI') }}">L-I Characteristics</a></li>
+                    </ul>
+                </li>
+                <li class="in-block"><a href="{{ url_for('ledviva') }}">Self-Evaluation</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Photoelectric Effect</a>
+            <ul class="dropdown-menu">
+                <li class="in-block"><a href="{{ url_for('phototheory') }}">Theory</a></li>
+                <li class="in-block"><a href="{{ url_for('photosim') }}">Simulation</a></li>
+                <li class="in-block"><a href="{{ url_for('photoviva') }}">Self-Evaluation</a></li>
+            </ul>
+        </li>
+    </ul>
+    <div class="logo">
+        <a href="https://kmit.in/"><img src="{{url_for('static', filename='images/kmit.png') }}" height="65px"
+                                        width="100px"></a>
+    </div>
+</nav>
+<div class="container">
+    <div class="box">
+        <h3>INTRODUCTION:</h3>
+        <p>
+            A laser diode is a laser where the active medium is a semiconductor similar to that found in a
+            light-emitting diode.<br/>
+            The most common and practical type of laser diode is formed from a p-n junction and powered by
+            injected electric current. <br/>
+            These devices are sometimes referred to as injection laser diodes to distinguish them from (optically)
+            pumped laser diodes, <br/>
+            which are more easily produced in the laboratory.
+        </p>
+    </div>
+
+    <div class="box">
+        <h3>AIM:</h3>
+        <p>To study V/I characteristics of a LASER diode.</p>
+    </div>
+
+    <div class="box">
+        <h3>APPARATUS:</h3>
+        <p>
+            Laser Diode Characteristics board comprises of: <br/>
+            1. Laser diode <br/>
+            2. 0-5V variable Supply for laser diode <br/>
+            3. 20mW Digital Optical power meter to measure optical power of Laser diode<br/>
+            4. 20V Digital Voltmeter to measure voltage across laser diode <br/>
+            5. 200mA DC Digital Ammeter to measure Laser diode Current<br/>
+        </p>
+    </div>
+
+    <div class="box">
+        <h3>CIRCUIT DIAGRAM:</h3>
+        <img src="{{ url_for('static', filename='images/circuit_laser.jpeg') }}">
+    </div>
+
+    <div class="box">
+        <h3>THEORY:</h3>
+        <p>
+            A laser diode, like many other semiconductor devices, is formed by doping a very thin layer on the
+            surface of a crystal wafer.<br/>
+            The crystal is doped to produce an n-type region and a p-type region, one above the other, resulting
+            in a p-n junction, or diode. <br/>
+            When an electron and a hole are present in the same region, they may recombine or "annihilate" with
+            the result being spontaneous emission — i.e.,<br/>
+            the electron may reoccupy the energy state of the hole, emitting a photon with energy equal to the
+            difference between the electron and hole states involved.<br/>
+            (In a conventional semiconductor junction diode, the energy released from the recombination of
+            electrons and holes is carried away as phonons, i.e., lattice vibrations, rather than as photons.)<br/>
+            Spontaneous emission gives the laser diode below lasing threshold similar properties to an LED.<br/>
+            Spontaneous emission is necessary to initiate laser oscillation, but it is one among several sources
+            of inefficiency once the laser is oscillating. <br/>
+            <br/>
+            In the absence of stimulated emission (e.g., lasing) conditions, electrons and holes may coexist in
+            proximity to one another,<br/>
+            without recombining, for a certain time, termed the "upper-state lifetime" or "recombination time"
+            (about a nanosecond for typical diode laser materials), before they recombine.<br/>
+            Then a nearby photon with energy equal to the recombination energy can cause recombination by
+            stimulated emission. This generates another photon of the same frequency,<br/>
+            travelling in the same direction, with the same polarization and phase as the first photon. <br/>
+            <br/>
+            This means that stimulated emission causes gain in an optical wave (of the correct wavelength) in
+            the injection region, <br/>
+            and the gain increases as the number of electrons and holes injected across the junction increases.
+            <br/>
+            <br/>
+            The spontaneous and stimulated emission processes are vastly more efficient in direct bandgap
+            semiconductors than in indirect bandgap semiconductors;<br/>
+            therefore silicon is not a common material for laser diodes. As in other lasers, the gain region is
+            surrounded with an optical cavity to form a laser.<br/>
+            In the simplest form of laser diode, an optical waveguide is made on that crystal surface, such that
+            the light is confined to a relatively narrow line.<br/>
+            The two ends of the crystal are cleaved to form perfectly smooth, parallel edges, forming a
+            Fabry-Perot resonator.<br/>
+            Photons emitted into a mode of the waveguide will travel along the waveguide and be reflected several
+            times from each end face before they are emitted.<br/>
+            As a light wave passes through the cavity, it is amplified by stimulated emission, but light is also
+            lost due to absorption and by incomplete reflection from the end facets.<br/>
+            Finally, if there is more amplification than loss, the diode begins to "laser".<br/>
+        </p>
+    </div>
+
+    <div class="box">
+        <h3>PROCEDURE:</h3>
+        <p>
+            1. Connect the Laser diode circuit as per the circuit diagram:<br/>
+            2. Slowly increase supply voltage using variable Power supply using coarse and fine knobs. <br/>
+            3. Note down current through the laser diode at increasing values of Laser diode voltage of 0.5V,
+            1.0V, 1.5V, 2.5 V. <br/>
+            4. Do not exceed current limit of 30mA else the laser diode may get damaged.<br/>
+            5. Plot a graph of Laser diode voltage v/s Laser diode current.<br/>
+        </p>
+    </div>
+
+    <div class="box">
+        <h3>MODEL GRAPH:</h3>
+        <img src="{{ url_for('static', filename='images/model_graph_laser.jpeg') }}"><br/>
+    </div>
+
+    <div class="box">
+        <h3>RESULT:</h3>
+        <p>V/I characteristics of LASER diode have been studied.</p>
+    </div>
+</div>
+</body>
+</html>

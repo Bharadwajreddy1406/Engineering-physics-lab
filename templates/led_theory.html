@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LED Characteristics</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="{{ url_for('static', filename='js/particles.js') }}"></script>
+</head>
+<body>
+<div id="particles-js"></div>
+<div class="top-bar" id="top">
+    <div class="row align-items-center">
+        <div class="col-lg-12 col-md-12">
+            <h2>Engineering Physics Virtual Lab - LED Characteristics</h2>
+        </div>
+    </div>
+</div>
+
+<nav>
+    <ul class="nav-links">
+        <li class="dropdown"><a href="#">Laser Diode Characteristics</a>
+            <ul class="dropdown-menu">
+                <li class="in-block"><a href="{{ url_for('lasertheory') }}">Theory</a></li>
+                <li class="in-block"><a href="{{ url_for('lasersim') }}">Simulation</a></li>
+                <li class="in-block"><a href="{{ url_for('laserviva') }}">Self-Evaluation</a></li>
+            </ul>
+        </li>
+        <li class="dropdown"><a href="#">LED Characteristics</a>
+            <ul class="dropdown-menu">
+                <li class="in-block"><a href="{{ url_for('ledtheory') }}">Theory</a></li>
+                <li class="in-block"><a href="#">Simulation</a>
+                    <ul class="dropdown-menu">
+                        <li class="in-block"><a href="{{ url_for('ledsimVI') }}">V-I Characteristics</a></li>
+                        <li class="in-block"><a href="#">L-I Characteristics</a></li>
+                    </ul>
+                </li>
+                <li class="in-block"><a href="{{ url_for('ledviva') }}">Self-Evaluation</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Photoelectric Effect</a>
+            <ul class="dropdown-menu">
+                <li class="in-block"><a href="{{ url_for('phototheory') }}">Theory</a></li>
+                <li class="in-block"><a href="{{ url_for('photosim') }}">Simulation</a></li>
+                <li class="in-block"><a href="{{ url_for('photoviva') }}">Self-Evaluation</a></li>
+            </ul>
+        </li>
+    </ul>
+    <div class="logo">
+        <a href="https://kmit.in/"><img src="{{url_for('static', filename='images/kmit.png') }}" height="65px"
+                                        width="100px"></a>
+    </div>
+</nav>
+    <div class="container">
+        <div class="box">
+            <h3>AIM:</h3>
+            <p>To study V/I and L/I characteristics of Light Emitting Diode (LED).</p>
+        </div>
+
+        <div class="box">
+            <h3>APPARATUS:</h3>
+            <p>
+                1. Light emitting diode<br/>
+                2. Variable Supply for Light emitting diode<br/>
+                3. Digital Optical power meter to measure optical power of Light emitting diode<br/>
+                4. Digital Voltmeter to measure voltage across Light emitting diode<br/>
+                5. DC Digital Ammeter to measure Light emitting diode Current<br/>
+            </p>
+        </div>
+
+        <div class="box">
+            <h3>THEORY:</h3>
+            <p>
+                A p-n junction diode, which emits light on forward biasing, is known as light emitting diode. <br/>
+                The emitted light may be in the visible range or invisible range and the intensity of light depends on the
+                applied potential. <br/>
+                <br/>
+            </p>
+        </div>
+
+        <div class="box">
+            <h3>PRINCIPLE:</h3>
+            <p>
+                In a p-n junction charge carrier recombination takes place when the electrons cross from the n-layer to the
+                P-layer.<br/>
+                The electrons are in the conduction band on the p-side while holes are in the valence band on the p-side.<br/>
+                The conduction band has a higher energy level compared to the valence band and so when the electrons<br/>
+                recombine with a hole the difference in energy is given out in the form of heat or light.<br/>
+                In case of silicon or germanium, the energy dissipation is in the form of heat, <br/>
+                whereas in case of gallium-arsenide and gallium phosphide, it is in the form of light.<br/>
+                But this light is in the invisible region & so these material cannot be used in the manufacture of LED. <br/>
+                Hence gallium - arsenide phosphide which emits light in the visible region is used to manufacture an LED.<br/>
+                <br/>
+            </p>
+        </div>
+
+        <div class="box">
+            <h3>CIRCUIT DIAGRAM:</h3>
+            <img src="{{url_for('static', filename='images/circuit_led.jpeg') }}">
+        </div>
+
+        <div class="box">
+            <h3>CONSTRUCTION:</h3>
+            <p>
+                An n-type layer is grown on a substance and a p-type layer is grown over it by diffusion process. <br/>
+                The P-layer is kept at the top because carrier recombination takes place in it.<br/>
+                The terminals anode and cathode are taken out of the n-layer and P-layer respectively. <br/>
+                The anode connections are made at the edge in order to provide more surface area for the emission of light.<br/>
+                A metal film is applied to the bottom of substance to reflect light to the surface of the device and also to
+                provide connection for the cathode terminal.<br/>
+                Finally the structure are provided with an encapsulated (cover) to protect them from destruction.<br/>
+                <br/>
+            </p>
+        </div>
+
+        <div class="box">
+            <h3>ADVANTAGES:</h3>
+            <p>
+                1. Works on low voltage and current and hence consumes less power.<br/>
+                2. Require no warm up time.<br/>
+                3. Can be switched ON and OFF at a faster rate. <br/>
+                4. Long lifetime. <br/>
+                5. Small size and less weight.<br/>
+                <br/>
+            </p>
+        </div>
+
+        <div class="box">
+            <h3>APPLICATIONS:</h3>
+            <p>
+                1. Infra red LEDS are used in burglar alarms. <br/>
+                2. Used in solid state video displays.<br/>
+                3. Used in the field of optical communication. <br/>
+                4. Used in image sensing circuits. <br/>
+                5. Used in numerical displays like watches, pocket calculators etc.<br/>
+            </p>
+        </div>
+
+        <div class="box">
+            <h3>PROCEDURE for V/I Characteristics:</h3>
+            <p>
+                1. Connect the Light emitting diode circuit as per the circuit diagram.<br/>
+                2. Slowly increase supply voltage using variable Power supply using coarse and fine knobs.<br/>
+                3. Note down current through the Light emitting diode at increasing values of Light emitting diode voltage of
+                0.5V, 1.0V, 1.5V, 2.5 V. <br/>
+                4. Do not exceed current limit of 30mA else the Light emitting diode may get damaged.<br/>
+                5. Plot a graph of Light emitting diode voltage V/s Light emitting diode current .<br/>
+            </p>
+        </div>
+
+        <div class="box">
+            <h3>MODEL GRAPH(V/I):</h3>
+            <img src="{{url_for('static', filename='images/led_vi.jpeg') }}">
+        </div>
+
+        <div class="box">
+            <h3>PROCEDURE for L/I Characteristics</h3>
+            <p>1. Connect the Light emitting diode circuit as per the circuit diagram.<br/>
+                2. Slowly increase supply voltage using variable Power supply coarse and fine knobs. <br/>
+                3. Note down the optical power measured by the optical power meter in mW at increasing current through the Light
+                emitting diode of 1mA to 20 mA at 1 mA step. <br/>
+                4. Do not exceed current limit of 30mA else the Light emitting diode may get damaged.<br/>
+                5. Plot a graph of Light emitting diode intensity V/s Light emitting diode current as shown in figure.<br/>
+            </p>
+        </div>
+
+        <div class="box">
+            <h3>MODEL GRAPH(L/I):</h3>
+            <img src="{{url_for('static', filename='images/led_li.jpeg') }}">
+        </div>
+
+        <div class="box">
+            <h3>RESULT:</h3>
+            <p>The V-I and L-I characteristics of an LED have been studied graphically.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Photoelectric Effect</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="{{ url_for('static', filename='js/particles.js') }}"></script>
+</head>
+<body>
+<div id="particles-js"></div>
+<div class="top-bar" id="top">
+    <div class="row align-items-center">
+        <div class="col-lg-12 col-md-12">
+            <h2>Engineering Physics Virtual Lab - Photoelectric Effect</h2>
+        </div>
+    </div>
+</div>
+
+<nav>
+    <ul class="nav-links">
+        <li class="dropdown"><a href="#">Laser Diode Characteristics</a>
+            <ul class="dropdown-menu">
+                <li class="in-block"><a href="{{ url_for('lasertheory') }}">Theory</a></li>
+                <li class="in-block"><a href="{{ url_for('lasersim') }}">Simulation</a></li>
+                <li class="in-block"><a href="{{ url_for('laserviva') }}">Self-Evaluation</a></li>
+            </ul>
+        </li>
+        <li class="dropdown"><a href="#">LED Characteristics</a>
+            <ul class="dropdown-menu">
+                <li class="in-block"><a href="{{ url_for('ledtheory') }}">Theory</a></li>
+                <li class="in-block"><a href="#">Simulation</a>
+                    <ul class="dropdown-menu">
+                        <li class="in-block"><a href="{{ url_for('ledsimVI') }}">V-I Characteristics</a></li>
+                        <li class="in-block"><a href="#">L-I Characteristics</a></li>
+                    </ul>
+                </li>
+                <li class="in-block"><a href="{{ url_for('ledviva') }}">Self-Evaluation</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Photoelectric Effect</a>
+            <ul class="dropdown-menu">
+                <li class="in-block"><a href="{{ url_for('phototheory') }}">Theory</a></li>
+                <li class="in-block"><a href="{{ url_for('photosim') }}">Simulation</a></li>
+                <li class="in-block"><a href="{{ url_for('photoviva') }}">Self-Evaluation</a></li>
+            </ul>
+        </li>
+    </ul>
+    <div class="logo">
+        <a href="https://kmit.in/"><img src="{{url_for('static', filename='images/kmit.png') }}" height="65px"
+                                        width="100px"></a>
+    </div>
+</nav>
+<div class="container">
+    <div class="box">
+        <h3>INTRODUCTION:</h3>
+        <p>
+            In solid-state   physics,   the work   function (sometimes   spelled work   function)   is   the   minimum thermodynamic work (i.e. energy)<br/>
+             needed to remove an electron from a solid to a point in the vacuum immediately outside the solid surface.<br/>
+             Here "immediately" means that the final electron position is far from the surface on the atomic scale, <br/>
+             but still too close to the solid to be influenced by ambient electric fields in the vacuum.<br/>
+             The work function is not a characteristic of a bulk material, but rather a property of the surface of the material. <br/>
+             <br/>
+        </p>
+    </div>
+    <div class="box">
+        <h3>AIM:</h3>
+        <p>To calculate the Work function of a given metal and observe the photo electric emission of metals.<br/>
+        <br/>
+        </p>
+    </div>
+    <div class="box">
+        <h3>APPARATUS:</h3>
+        <p>
+            1.   Photo sensitive device: Vacuum photo tube.<br/>
+            2.   Light source: External light source which is 110 LED'S with remote sensor.<br/>
+            3.   DC Regulated Power Supply with 3 ½ Digit Digital Display.<br/>
+            4.   Current detecting unit: Digital micro ammeter 0- 20µA.<br/>
+        </p>
+    </div>
+    <div class="box">
+        <h3>THEORY:</h3>
+        <p>
+            When  light  hits  a  metal  surface  it  can  produce  an  electric  potential, This phenomenon is called  “Photoelectric effect”.<br/>
+            This concept is used to generate electricity directly from the energy of light.<br/>
+            In order to find work function, we have to know  plank's  constant  (h).<br/>
+            It  relates  the  energy  in  one  quantum  (photon)  of electromagnetic  radiation  to  the  frequency  of  that  radiation.<br/>
+            In international  system  of  units  SI  the constant is equal to approximately 60626176×10 -34 joules –seconds.<br/>
+            <br/>
+            The minimum energy required from a photon to knock an electron out of surface of a metal is known as Work function of a given metal.<br/>
+            We know the velocity of an electron once ejected or kinetic energy of an electron.<br/>
+            We also know the frequency of the photons that we aimed at the metal. Then the energy of the photon that ejected the electrons is E= hf<br/>
+             <br/>
+             The difference between the energy of photon and kinetic energy of an electron will of course the Work function [0].<br/>
+              In mathematically Ø = hf –EK.<br/>
+              <br/>
+              E<sub>k</sub> = hf - Ø &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp =Equation 1<br/>
+              Y = mx+c &nbsp &nbsp  &nbsp  &nbsp&nbsp &nbsp  &nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp =Equation-2<br/>
+            <br/>here,<br/>
+            h= planks constant,
+            f= frequency of incident light. <br/><br/>
+            Compare the above two equations the Work function is equals to the 'c'. <br/>
+            So when we plot the graph of frequency(Hz) on x-axis and E<sub>k</sub> on y-axis,<br/>
+            the slope of the straight line yields plank's constant(h)<br/>
+            and the intercept of extrapolated point can gives the Work function Ø. <br/>
+            <br/>
+        </p>
+    </div>
+    <div class="box">
+        <h3>CIRCUIT DIAGRAM:</h3>
+        <img src="{{url_for('static', filename='images/photo_model_circuit.jpeg')}}">
+    </div>
+    <div class="box">
+        <h3>PROCEDURE:</h3>
+        <p>
+            1.   Connect the Circuit as per Circuit Diagram.<br/>
+            2.	 Light source is arranged and light is allowed to fall on the tube which is enclosed in a box the distance between photo cell and Light source adjusted for the flow of current.<br/>
+            3.   Apply the Colour filters of known wave length   1,    2 and etc., is placed in path of light.<br/>
+            4.   A reading is observed in Micro ammeter. This reading corresponds to zero anode potential with that particular filter.<br/>
+            5.   A small negative potential is applied is gradually increase in step and each time reading in voltmeter and ammeter is noted till the micro ammeter reading comes to zero.<br/> This is stopping potential V1 corresponding to filter with wave length<br/>
+            6.   The experiment is repeated another filter of known wave length and corresponding stopping potential and are noted.<br/>
+            7.   A graph is plotted by taking negative anode stopping potential (K) Kinetic Energy on X-Axis Vs Frequency of particular filter on Y-Axis.<br/>
+        </p>
+    </div>
+    <div class="box">
+        <h3>WAVELENGTH:</h3>
+        <p>
+            Red filter:640nm<br/>
+            Orange filter:570nm<br/>
+            Green filter:500nm<br/>
+            Blue filter:450nm<br/>
+        </p>
+    </div>
+    <div class="box">
+        <h3>FREQUENCIES:</h3>
+        <p>
+            frequency of red:c/λ = 3×10<super>8</super>/640×10<super>-9</super> = 4.6875×10<super>14</super> Hz<br/>
+            frequency of orange:c/λ = 3×10<super>8</super>/570×10<super>-9</super> = 5.2631×10<super>14</super> Hz<br/>
+            frequency of green:c/λ = 3×10<super>8</super>/500×10<super>-9</super> = 6×10<super>14</super> Hz<br/>
+            frequency of blue:c/λ = 3×10<super>8</super>/450×10<super>-9</super> = 6.6667×10<super>14</super> Hz<br/>
+            <br/></p>
+    </div>
+    <div class="box">
+        <h3>MODEL GRAPH:</h3>
+        <img src="{{url_for('static', filename='images/photo_model_graph.jpeg')}}">
+        <br/>
+    </div>
+    <div class="box">
+        <h3>RESULT:</h3>
+        <p>The work function of the given metal is found
+        </p>
+    </div>
+</div>
+</body>
+</html>
