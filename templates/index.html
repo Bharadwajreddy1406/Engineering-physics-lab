@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Welcome to EP Virtual Lab</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="{{ url_for('static', filename='js/particles.js') }}"></script>
+</head>
+<body>
+    <div id="particles-js"></div>
+<div class="top-bar" id="top" style="position:fixed;background:black;z-index:100;height:100px;">
+    <div class="row align-items-center">
+        <div class="col-lg-12 col-md-12">
+            <h2 style="text-align:center;">KMIT's Engineering Physics Virtual Lab<br/>
+
+            </h2>
+        </div>
+    </div>
+</div>
+
+<nav style="position:fixed; margin-top:80px; width:100%;">
+    <ul class="nav-links">
+        <li class="dropdown"><a href="#">Laser Diode Characteristics</a>
+            <ul class="dropdown-menu">
+                <li class="in-block"><a href="{{ url_for('lasertheory') }}">Theory</a></li>
+                <li class="in-block"><a href="{{ url_for('lasersim') }}">Simulation</a></li>
+                <li class="in-block"><a href="{{ url_for('laserviva') }}">Self-Evalution</a></li>
+            </ul>
+        </li>
+        <li class="dropdown"><a href="#">LED Characteristics</a>
+            <ul class="dropdown-menu">
+                <li class="in-block"><a href="{{ url_for('ledtheory') }}">Theory</a></li>
+                <li class="in-block"><a href="#">Simulation</a>
+                    <ul class="dropdown-menu">
+                        <li class="in-block"><a href="{{ url_for('ledsimVI') }}">V-I Characteristics</a></li>
+                        <li class="in-block"><a href="{{ url_for('ledsimLI') }}">L-I Characteristics</a></li>
+                    </ul>
+                </li>
+                <li class="in-block"><a href="{{ url_for('ledviva') }}">Self-Evaluation</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Photoelectric Effect</a>
+            <ul class="dropdown-menu">
+                <li class="in-block"><a href="{{ url_for('phototheory') }}">Theory</a></li>
+                <li class="in-block"><a href="{{ url_for('photosim') }}">Simulation</a></li>
+                <li class="in-block"><a href="{{ url_for('photoviva') }}">Self-Evaluation</a></li>
+            </ul>
+        </li>
+    </ul>
+    <div class="logo" style="margin-right:40px;">
+        <a href="https://kmit.in/"><img src="{{url_for('static', filename='images/kmit.png') }}" height="65px"
+                                        width="100px"></a>
+    </div>
+</nav>
+<div class="container" style="position:absolute;margin-top:150px;">
+    <div class="box">
+        <h3 style="text-align:center;font-size:25px;">Welcome to KMIT's Engineering Virtual Lab</h3>
+        <p>
+           Welcome to the Engineering Physics Virtual Lab – your gateway to a world of hands-on learning and experimentation
+            in the realm of engineering physics. We are thrilled to present a revolutionary online platform that empowers students,
+            educators, and enthusiasts to enhance one’s practical skills and knowledge through immersive simulations of our
+            experiments.
+        <br/>
+            <br/>
+            Our virtual lab offers you the opportunity to explore intricate concepts, simulation, and theories of different
+            experiments in a risk-free, digital environment. This website has been made for both teachers and students to provide
+            a seamless way to not just learn but facilitate teaching as well.
+        <br/>
+            <br/>
+            <strong style="font-size:20px;color:#009999;">Optimal Viewing Experience:</strong> For a seamless and enjoyable learning experience, we recommend utilizing this virtual lab
+            on a laptop with a screen size of around 15.6 inches. This configuration ensures a hassle-free interaction with the
+            simulations, allowing you to explore concepts with clarity and ease.
+        <br/>
+            <br/>
+            <strong style="font-size:20px;color:#009999;">Important Considerations:</strong> It's important to recognize that this virtual lab is designed to enhance your learning journey,
+            but it SHOULD NOT serve as your sole source of understanding. We STRONGLY ADVISE against relying solely on this platform.
+            Instead, view it as an educational tool that complements your studies.
+        <br/>
+            <br/>
+            <strong style="color:red;font-size:20px;">Precautionary:</strong> To derive the maximum benefit from this resource, we encourage you to integrate it into your
+            educational approach. Consider using this platform either BEFORE or AFTER conducting the actual experiments.
+            This strategic utilization will aid in deepening your grasp of the underlying principles.
+        <br/>
+            <br/>
+            <strong style="font-size:20px;color:#009999;">Dynamic Development:</strong> Please be aware that this website is an ongoing project, and our team is continuously working to expand
+            its offerings. More experiments will be added over time to enrich your learning experience.
+        <br/>
+            <br/>
+            <strong style="font-size:20px;color:#009999;">Your Feedback Matters:</strong> In the event that you encounter any issues while using the platform, we value your feedback.
+            Don't hesitate to reach out to your teachers or contact us directly to report any problems you come across.
+            We are committed to resolving these issues promptly to ensure a smooth and productive experience for all users!
+        </p>
+    </div>
+    <div class="box">
+        <h3 style="font-size:25px;">Overview</h3>
+        
+        <p>
+            Each experiment in this virtual lab consists of three parts: Theory, Simulation, Self-Evaluation.
+            You can find all three parts as a dropdown under each experiment in the navigation bar above<br/><br/>
+            <strong style="font-size:20px;color:#009999">Theory:</strong> This sub-page comprises the underlying theory for each
+            experiment, essential to grasp before conducting them. The theory to be documented in record remains consistent as well.<br/><br/>
+            <strong style="font-size:20px;color:#009999">Simulation:</strong> The simulation sub-page provides students with the opportunity
+            to engage in the experiment virtually.<br/><br/>
+            <strong style="font-size:20px;color:#009999">Self-Evaluation:</strong> This sub-page has a Google form to test your knowledge regarding the experiment i.e.
+            it is a VIVA form. Upon clicking submit the student can immediately check their score and reflect on their performance.
+        </p>
+
+    </div>
+    <div class="box">
+        <h3 style="font-size:25px;">Experiments included</h3>
+        <p>
+            <strong style="font-size:20px;color:#009999">1. </strong>Laser Diode V-I Characteristics<br/><br/>
+            <strong style="font-size:20px;color:#009999">2. </strong>LED Characteristics<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(i) V-I Characteristics<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ii) L-I Charcateristics<br/><br/>
+            <strong style="font-size:20px;color:#009999">3. </strong>Photoelectric Effect
+        </p>
+    </div>
+</div>
+<div class="popup-container hidden" id="popup4" >
+    <div class="popup-content">
+        <img src="{{ url_for('static', filename='images/caution.png') }}" height="120px" width="120px">
+        <p>Please open this on a laptop for better results and viewing experience</p>
+        <button onclick="hidePopup()">Continue Anyway</button>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var screenWidth = window.innerWidth;
+        var popup4 = document.getElementById('popup4');
+
+        // Show the popup if the screen width is less than 1080px
+        if (screenWidth < 1080) {
+            popup4.classList.remove('hidden');
+            popup4.classList.add('visible');
+        }
+    });
+    function hidePopup() {
+        var popup4 = document.getElementById('popup4');
+        popup4.classList.remove('visible');
+        popup4.classList.add('hidden');
+    }
+</script>
+
+</body>
+</html>
