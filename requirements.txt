@@ -1,7 +1,7 @@
 ﻿blinker==1.6.2
 click==8.1.7
 colorama==0.4.6
-contourpy==1.1.0
+contourpy==1.0.6
 cycler==0.11.0
 Flask==2.3.3
 fonttools==4.42.1
