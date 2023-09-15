@@ -243,7 +243,7 @@ def photocurrent(voltage):
 
 @app.route('/photo_sim')
 def photosim():
-    session['S_potential'] = ['' for _ in range(4)]
+    session['S_potential'] = ['' for i in range(4)]
     session['voltage'] = request.args.get("voltage", default=0.0, type=float)
     current = 0.0
     return render_template('photo_sim.html', voltage=session['voltage'], current=current, list=session['S_potential'], graph=None, color=None)
@@ -280,9 +280,9 @@ def process_form_photo():
 def process_photo_voltage():
     flag=1
     submit_clicked = request.form.get('submit-voltage')
-    session['pcurrent']=photocurrent(session['volts'])
     if submit_clicked:
         try:
+            session['pcurrent'] = photocurrent(session['volts'])
             if session['color'] == 'red' and session['volts'] == -0.18:
                 session['S_potential'][0] = abs(session['volts'])
                 flag=0
@@ -313,4 +313,4 @@ def photoviva():
     return render_template('photo_viva.html')
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=5000, debug=True)
